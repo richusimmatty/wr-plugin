@@ -101,9 +101,8 @@ $memberId = md5(strtolower($data['email']));
 add_shortcode('wrg-subscribe', 'wrform'); 
 
 function wrform(){
-	if(is_admin()){
-		return true;
-	}
+  if(!is_page()){
+    return false;  }
 
 	?>
 
