@@ -31,7 +31,7 @@ function enqueue_jquery_form(){
 }
 }
 
-add_action('wp_ajax_create_applicant','create_applicant');
+add_action('wp_ajax_nopriv_create_applicant','create_applicant');
 
 function load_my_script(){
     wp_register_script( 
