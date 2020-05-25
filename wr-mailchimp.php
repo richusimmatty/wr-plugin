@@ -31,7 +31,20 @@ function enqueue_jquery_form(){
 }
 }
 
-add_action('wp_ajax_nopriv_create_applicant','create_applicant');
+
+
+function login_function()
+{
+    if ( is_user_logged_in() == true ) {
+       add_action('wp_ajax_create_applicant','create_applicant');
+
+    } else {
+       add_action('wp_ajax_nopriv_create_applicant','create_applicant');
+    }
+}
+add_action('init', 'login_function');
+
+
 
 function load_my_script(){
     wp_register_script( 
@@ -189,6 +202,7 @@ function wrform(){
 
 
         jQuery('#challenge').ajaxForm({
+
      
           success: function(response){
 
